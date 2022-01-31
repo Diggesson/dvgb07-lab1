@@ -70,6 +70,8 @@ namespace lab1
                 }
             } while (value != 10);
 
+            Console.WriteLine("-------------END OF PROGRAM-------------");
+
         }
 
         static int Menu()
