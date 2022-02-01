@@ -36,7 +36,7 @@ namespace lab1
 
                     case 5:
                         Console.WriteLine($"choice: {value} ");
-                        //@TODO
+                        printMedianMean(10);
                         break;
 
                     case 6:
@@ -207,6 +207,35 @@ namespace lab1
             }
 
             Console.WriteLine($"AB occurs {sum} times");
+        }
+
+        static void printMedianMean( int size)
+        {
+            var numbers = new List<int> { };
+            int sum = 0;
+            for (int i=0; i<size; i++) 
+            {
+                bool goodInput;
+                do
+                {
+                    Console.Write($"skriv in tal {i + 1}/{size} : ");
+                    try
+                    {
+                        numbers.Add(int.Parse(Console.ReadLine()));
+                        sum += numbers[i];
+                        goodInput = true;
+                    }
+
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        goodInput = false;
+                    }
+                } while (!goodInput);
+            }
+            numbers.Sort();
+            Console.WriteLine($"medianen = {numbers[size/2 -1]}");
+            Console.WriteLine($"medelvärde = {sum/size}");
         }
     }
 }
