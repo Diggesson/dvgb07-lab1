@@ -41,12 +41,12 @@ namespace lab1
 
                     case 6:
                         Console.WriteLine($"choice: {value} ");
-                        //@TODO
+                        sumTwoNumbers();
                         break;
 
                     case 7:
                         Console.WriteLine($"choice: {value} ");
-                        //@TODO
+                        isAlpha();
                         break;
 
                     case 8:
@@ -236,6 +236,56 @@ namespace lab1
             numbers.Sort();
             Console.WriteLine($"medianen = {numbers[size/2 -1]}");
             Console.WriteLine($"medelvärde = {sum/size}");
+            
+            
         }
+    
+        static void sumTwoNumbers()
+        {
+            int x, y;
+
+            string xx, yy;
+
+            Console.Write("Skriv in ett tal: ");
+            xx = Console.ReadLine();
+            Console.Write("Skriv in ett till tal ");
+            yy = Console.ReadLine();
+
+            try
+            {
+                x = int.Parse(xx);
+                y = int.Parse(yy);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+
+            Console.WriteLine($"{x} + {y} = {x + y}");
+
+        }
+    
+        static void isAlpha()
+        {
+            string cc;
+            Console.Write("Write a character: ");
+            cc = Console.ReadLine();
+            if (cc.Length != 1)
+            {
+                Console.WriteLine("Input to big, just write one character.");
+                return;
+            }
+            if (char.IsLetter(cc[0]))
+            {
+                Console.WriteLine("Input is a letter!");
+            }
+            else
+            {
+                Console.WriteLine("Input is not a letter!");
+            }
+
+        }
+
     }
 }
