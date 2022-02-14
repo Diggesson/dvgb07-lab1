@@ -56,7 +56,7 @@ namespace lab1
 
                     case 9:
                         Console.WriteLine($"choice: {value} ");
-                        //@TODO
+                        newLottoRowInterface();
                         break;
 
                     case 10:
@@ -285,6 +285,54 @@ namespace lab1
                 Console.WriteLine("Input is not a letter!");
             }
 
+        }
+
+        static void newLottoRowInterface()
+        {
+            string input;
+            do
+            {
+                Console.Write("Press anything to quit or press enter for a new lottorow: ");
+                input = Console.ReadLine();
+                Console.WriteLine("[{0}]", String.Join(",", newLottoRow()));
+            } while (String.IsNullOrEmpty(input));
+        }
+
+        static int[] newLottoRow()
+        {
+            int col = 7, size = 36;
+            int [] lottoRow = new int [col];
+
+            Random r1 = new Random();
+
+            for (int i = 0; i < col; i++)
+            {
+                //Do something with random...
+                lottoRow[i] = r1.Next(size + 1);
+
+                if (i > 0) 
+                {
+                    bool sameNumber = false;
+                    do
+                    {
+                        for(int j=0 ; j<i ; j++)
+                        {
+                            if (lottoRow[j] == lottoRow[i])
+                            {
+                                sameNumber = true;
+                                lottoRow[i] = r1.Next(size + 1);
+                                break;
+                            }
+                            else
+                                sameNumber = false;
+                        }
+                    } while (sameNumber);
+                }
+
+                
+            }
+
+            return lottoRow; 
         }
 
     }
